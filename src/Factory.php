@@ -3,19 +3,17 @@
 namespace LVR\CreditCard;
 
 use LVR\CreditCard\Cards\Jcb;
-use LVR\CreditCard\Cards\Mir;
 use LVR\CreditCard\Cards\Visa;
 use LVR\CreditCard\Cards\Dankort;
 use LVR\CreditCard\Cards\Maestro;
 use LVR\CreditCard\Cards\UnionPay;
 use LVR\CreditCard\Cards\Discovery;
-use LVR\CreditCard\Cards\Hipercard;
 use LVR\CreditCard\Cards\DinersClub;
 use LVR\CreditCard\Cards\Mastercard;
-use LVR\CreditCard\Cards\Elo;
 use LVR\CreditCard\Cards\VisaElectron;
 use LVR\CreditCard\Cards\AmericanExpress;
 use LVR\CreditCard\Cards\Forbrugsforeningen;
+use LVR\CreditCard\Cards\Hipercard;
 use LVR\CreditCard\Exceptions\CreditCardException;
 
 class Factory
@@ -24,6 +22,7 @@ class Factory
         // Firs debit cards
         Dankort::class,
         Forbrugsforeningen::class,
+        Hipercard::class,
         Maestro::class,
         VisaElectron::class,
         // Debit cards
@@ -31,12 +30,9 @@ class Factory
         DinersClub::class,
         Discovery::class,
         Jcb::class,
-        Hipercard::class,
         Mastercard::class,
         UnionPay::class,
         Visa::class,
-        Elo::class,
-        Mir::class,
     ];
 
     /**

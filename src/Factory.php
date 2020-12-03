@@ -2,6 +2,7 @@
 
 namespace LVR\CreditCard;
 
+use LVR\CreditCard\Cards\Hipercard;
 use LVR\CreditCard\Cards\Jcb;
 use LVR\CreditCard\Cards\Visa;
 use LVR\CreditCard\Cards\Dankort;
@@ -22,6 +23,7 @@ class Factory
         Dankort::class,
         Forbrugsforeningen::class,
         Maestro::class,
+        Hipercard::class,
         VisaElectron::class,
         // Debit cards
         AmericanExpress::class,

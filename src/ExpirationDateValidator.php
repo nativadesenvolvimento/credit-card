@@ -29,6 +29,24 @@ class ExpirationDateValidator
     }
 
     /**
+     * @param $year
+     *
+     * @return $this
+     */
+    protected function setYear($year)
+    {
+        $year = trim($year);
+
+        if (strlen($year) == 2) {
+            $year = substr(date('Y'), 0, 2).$year;
+        }
+
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
      * @param string $year
      * @param string $month
      *
@@ -47,24 +65,6 @@ class ExpirationDateValidator
         return $this->isValidYear()
             && $this->isValidMonth()
             && $this->isFeatureDate();
-    }
-
-    /**
-     * @param $year
-     *
-     * @return $this
-     */
-    protected function setYear($year)
-    {
-        $year = trim($year);
-
-        if (strlen($year) == 2) {
-            $year = substr(date('Y'), 0, 2).$year;
-        }
-
-        $this->year = $year;
-
-        return $this;
     }
 
     /**

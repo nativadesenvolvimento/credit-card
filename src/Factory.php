@@ -2,6 +2,7 @@
 
 namespace LVR\CreditCard;
 
+use LVR\CreditCard\Cards\Hipercard;
 use LVR\CreditCard\Cards\Jcb;
 use LVR\CreditCard\Cards\Visa;
 use LVR\CreditCard\Cards\Dankort;
@@ -13,7 +14,6 @@ use LVR\CreditCard\Cards\Mastercard;
 use LVR\CreditCard\Cards\VisaElectron;
 use LVR\CreditCard\Cards\AmericanExpress;
 use LVR\CreditCard\Cards\Forbrugsforeningen;
-use LVR\CreditCard\Cards\Hipercard;
 use LVR\CreditCard\Exceptions\CreditCardException;
 
 class Factory
@@ -22,8 +22,8 @@ class Factory
         // Firs debit cards
         Dankort::class,
         Forbrugsforeningen::class,
-        Hipercard::class,
         Maestro::class,
+        Hipercard::class,
         VisaElectron::class,
         // Debit cards
         AmericanExpress::class,
@@ -54,6 +54,7 @@ class Factory
      */
     protected static function determineCardByNumber(string $card_number)
     {
+//        dd($card_number);
         foreach (self::$available_cards as $card) {
             if (preg_match($card::$pattern, $card_number)) {
                 return new $card($card_number);

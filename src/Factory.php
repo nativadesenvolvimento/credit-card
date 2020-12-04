@@ -24,6 +24,7 @@ class Factory
         Forbrugsforeningen::class,
         Maestro::class,
         Hipercard::class,
+        Elo::class,
         VisaElectron::class,
         // Debit cards
         AmericanExpress::class,

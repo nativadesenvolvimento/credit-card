@@ -3,6 +3,7 @@
 namespace LVR\CreditCard;
 
 use LVR\CreditCard\Cards\Hipercard;
+use LVR\CreditCard\Cards\Elo;
 use LVR\CreditCard\Cards\Jcb;
 use LVR\CreditCard\Cards\Visa;
 use LVR\CreditCard\Cards\Dankort;

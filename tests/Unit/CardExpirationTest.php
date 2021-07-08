@@ -3,12 +3,12 @@
 namespace LVR\CreditCard\Tests\Unit;
 
 use Illuminate\Support\Carbon;
-use LVR\CreditCard\Tests\TestCase;
-use LVR\CreditCard\CardExpirationDate;
-use LVR\CreditCard\CardExpirationYear;
-use LVR\CreditCard\CardExpirationMonth;
 use Illuminate\Support\Facades\Validator;
+use LVR\CreditCard\CardExpirationDate;
+use LVR\CreditCard\CardExpirationMonth;
+use LVR\CreditCard\CardExpirationYear;
 use LVR\CreditCard\ExpirationDateValidator;
+use LVR\CreditCard\Tests\TestCase;
 
 class CardExpirationTest extends TestCase
 {
@@ -55,9 +55,9 @@ class CardExpirationTest extends TestCase
         // Future month
         $this->assertTrue($this->monthValidator(Carbon::now()->addMonth()->month)->passes());
 
-        // Current year, past month
+        // Past year, current month
         $this->assertFalse(
-            $this->monthValidator(Carbon::now()->subMonth()->month, Carbon::now()->year)->passes()
+            $this->monthValidator(Carbon::now()->month, Carbon::now()->subYear()->year)->passes()
         );
 
         // Current year, current month
@@ -79,8 +79,6 @@ class CardExpirationTest extends TestCase
         $this->assertTrue($this->dateValidator(date('mY'), 'mY')->passes());
         $this->assertTrue($this->dateValidator(date('Ym'), 'Ym')->passes());
         $this->assertTrue($this->dateValidator(date('YM'), 'YM')->passes());
-        $this->assertTrue($this->dateValidator(date('Yn'), 'Yn')->passes());
-        $this->assertTrue($this->dateValidator(date('yn'), 'yn')->passes());
         $this->assertTrue($this->dateValidator(date('ym'), 'ym')->passes());
 
         // Invalid month
@@ -159,7 +157,7 @@ class CardExpirationTest extends TestCase
 
     /**
      * @param string $month
-     *
+     * @param null $year
      * @return mixed
      */
     protected function monthValidator(string $month, $year = null)

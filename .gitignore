@@ -4,3 +4,5 @@ vendor
 phpunit.xml
 coverage.xml
 test-reports
+composer.lock
+.phpunit.result.cache

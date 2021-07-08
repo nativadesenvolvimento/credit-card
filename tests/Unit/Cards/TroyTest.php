@@ -3,11 +3,11 @@
 namespace LVR\CreditCard\Tests\Unit\Cards;
 
 use Illuminate\Support\Collection;
-use LVR\CreditCard\Cards\VisaElectron;
+use LVR\CreditCard\Cards\Troy;
 
-class VisaElectronTest extends BaseCardTests
+class TroyTest extends BaseCardTests
 {
-    public $instance = VisaElectron::class;
+    public $instance = Troy::class;
 
     /**
      * @return \Illuminate\Support\Collection
@@ -15,10 +15,10 @@ class VisaElectronTest extends BaseCardTests
     public function validNumbers(): Collection
     {
         return collect([
-            '4917300800000000',
-            '4479651508787615',
-            '4113550663468031',
-            '49174917491749174',
+            '9792112633252339',
+            '9792020000000001',
+            '9792030000000000',
+            '9792122738534192',
         ]);
     }
 
@@ -28,9 +28,9 @@ class VisaElectronTest extends BaseCardTests
     public function numbersWithInvalidLength(): Collection
     {
         return collect([
-            '49173008000',
-            '447965150878761',
-            '41135506634680311',
+            '9711111',
+            '971111111111111',
+            '97110009901394241',
         ]);
     }
 
@@ -40,9 +40,8 @@ class VisaElectronTest extends BaseCardTests
     public function numbersWithInvalidCheckSum(): Collection
     {
         return collect([
-            '4917300800000002',
-            '4479651508787616',
-            '4113550663468032',
+            '9792112633252341',
+            '9792112635452339',
         ]);
     }
 }

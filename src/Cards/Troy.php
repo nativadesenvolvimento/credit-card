@@ -4,42 +4,42 @@ namespace LVR\CreditCard\Cards;
 
 use LVR\CreditCard\Contracts\CreditCard;
 
-class VisaElectron extends Card implements CreditCard
+class Troy extends Card implements CreditCard
 {
     /**
      * Regular expression for card number recognition.
      *
      * @var string
      */
-    public static $pattern = '/^4(026|17500|405|508|844|91[37])/';
+    public static $pattern = '/^9(?!(79200|79289))/'; // 979200 and 979289 are starts for Troy
 
     /**
      * Credit card type.
      *
      * @var string
      */
-    protected $type = 'debit';
+    protected $type = 'credit';
 
     /**
      * Credit card name.
      *
      * @var string
      */
-    protected $name = 'visaelectron';
+    protected $name = 'troy';
 
     /**
      * Brand name.
      *
      * @var string
      */
-    protected $cleanName = 'Visa Electron';
+    protected $brand = 'Troy';
 
     /**
      * Card number length's.
      *
      * @var array
      */
-    protected $number_length = [16, 17];
+    protected $number_length = [16];
 
     /**
      * CVC code length's.
